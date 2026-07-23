@@ -13,9 +13,10 @@
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
-  --nav-height: 72px;
-  --container-max: 1320px;
-  --section-padding: 100px;
+  --nav-height: 88px;
+  --nav-top: 45px;
+  --container-max: 1920px;
+  --section-padding: 64px;
   --radius: 8px;
   --radius-pill: 999px;
   --transition: 0.3s ease;
@@ -79,7 +80,7 @@ address {
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 63px;
 }
 
 .section {
@@ -88,8 +89,9 @@ address {
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 64px;
-    --nav-height: 64px;
+    --section-padding: 48px;
+    --nav-height: 72px;
+    --nav-top: 0px;
   }
 
   .container {
