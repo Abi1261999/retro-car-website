@@ -413,6 +413,23 @@
   justify-content: flex-end;
 }
 
+.car-card__cta-car {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78%;
+  max-width: 700px;
+  height: auto;
+  max-height: 62%;
+  object-fit: contain;
+  object-position: center top;
+  opacity: 0.42;
+  filter: grayscale(100%) brightness(1.35);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .car-card__bg {
   position: absolute;
   inset: 0;
@@ -452,7 +469,8 @@
 }
 
 .car-card__overlay--cta {
-  padding-bottom: 44px;
+  margin-top: auto;
+  padding: 36px 40px 44px;
 }
 
 .car-card__price {
