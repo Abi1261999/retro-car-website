@@ -1,8 +1,13 @@
-const footerLinks = [
-  { label: 'Cars', href: '#cars' },
-  { label: 'About Us', href: '#about' },
-  { label: 'How to rent', href: '#cars' },
-  { label: 'Contacts', href: '#contacts' },
+const footerNavColumns = [
+  [
+    { label: 'Cars', href: '#cars' },
+    { label: 'About Us', href: '#about' },
+    { label: 'About Us', href: '#about' },
+  ],
+  [
+    { label: 'How to rent', href: '#cars' },
+    { label: 'Contacts', href: '#contacts' },
+  ],
 ]
 
 export default function Footer({ onNavClick }) {
@@ -13,7 +18,7 @@ export default function Footer({ onNavClick }) {
 
   return (
     <footer className="footer">
-      <div className="container footer__inner">
+      <div className="footer__inner">
         <div className="footer__brand">
           <a
             href="#hero"
@@ -27,16 +32,18 @@ export default function Footer({ onNavClick }) {
           </a>
         </div>
 
-        <nav className="footer__nav">
-          <ul>
-            {footerLinks.map((link) => (
-              <li key={link.label}>
-                <a href={link.href} onClick={(e) => handleNav(e, link.href)}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <nav className="footer__nav" aria-label="Footer">
+          {footerNavColumns.map((column, columnIndex) => (
+            <ul key={columnIndex} className="footer__nav-col">
+              {column.map((link, linkIndex) => (
+                <li key={`${columnIndex}-${linkIndex}`}>
+                  <a href={link.href} onClick={(e) => handleNav(e, link.href)}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ))}
         </nav>
 
         <div className="footer__contact">
@@ -45,7 +52,7 @@ export default function Footer({ onNavClick }) {
         </div>
       </div>
 
-      <div className="footer__bottom container">
+      <div className="footer__bottom">
         <p>&copy; Cars Classic Autotrader 2024</p>
       </div>
     </footer>

@@ -1,36 +1,38 @@
-import ApplicationForm from './ApplicationForm'
+import { contactInfo } from '../data/contact'
 
 export default function ContactSection({ onSubmitApplication }) {
   return (
-    <section id="contacts" className="contact-section section">
-      <div className="container contact-grid">
-        <div className="contact-info">
-          <h2 className="section-title">
+    <section id="contacts" className="contact-section">
+      <div className="contact-section__inner">
+        <div className="contact-header">
+          <h2 className="contact-title">
             Where
             <br />
             to find us
           </h2>
-          <div className="contact-details">
-            <a href="tel:+17015811331" className="contact-link">
-              +1 (701) 581-1331
+
+          <div className="contact-header__info">
+            <a href={contactInfo.phoneHref} className="contact-phone">
+              {contactInfo.phone}
             </a>
-            <address className="contact-address">
-              161 Trumpeter Ave, Soldotna, Alaska
-            </address>
+            <address className="contact-address">{contactInfo.address}</address>
+            <button
+              type="button"
+              className="btn btn-pill btn-contact-cta"
+              onClick={onSubmitApplication}
+            >
+              Submit your application
+            </button>
           </div>
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={onSubmitApplication}
-          >
-            Submit your application
-          </button>
         </div>
 
-        <div className="contact-form-wrap">
-          <h3 className="contact-form-title">Get in touch</h3>
-          <ApplicationForm />
-        </div>
+        <img
+          src={contactInfo.mapImage}
+          alt="Map showing our location"
+          className="contact-map"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </section>
   )
