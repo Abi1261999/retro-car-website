@@ -6,10 +6,12 @@
   "scripts": {
     "sync:cars": "node scripts/sync-cars.mjs",
     "sync:about": "node scripts/sync-about.mjs",
+    "sync:services": "node scripts/sync-services.mjs",
     "extract:cars": "python scripts/extract-cars-from-pdf.py",
     "extract:about": "python scripts/extract-about-car.py",
-    "dev": "npm run sync:cars && npm run sync:about && vite",
-    "build": "npm run sync:cars && npm run sync:about && vite build",
+    "extract:services": "python scripts/extract-services-from-pdf.py",
+    "dev": "npm run sync:cars && npm run sync:about && npm run sync:services && vite",
+    "build": "npm run sync:cars && npm run sync:about && npm run sync:services && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },
