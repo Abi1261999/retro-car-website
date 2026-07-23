@@ -41,26 +41,24 @@ export default function Navbar({ onNavClick }) {
           Cars Classic Autotrader
         </a>
 
-        <div className="navbar__right">
-          <nav className={`navbar__nav ${menuOpen ? 'navbar__nav--open' : ''}`}>
-            <ul className="navbar__links">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} onClick={(e) => handleNav(e, link.href)}>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <a href="tel:+12403751288" className="navbar__phone navbar__phone--mobile">
-              +1 (240) 375-1288
-            </a>
-          </nav>
-
-          <a href="tel:+12403751288" className="navbar__phone navbar__phone--desktop">
+        <nav className={`navbar__nav ${menuOpen ? 'navbar__nav--open' : ''}`}>
+          <ul className="navbar__links">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} onClick={(e) => handleNav(e, link.href)}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="tel:+12403751288" className="navbar__phone navbar__phone--mobile">
             +1 (240) 375-1288
           </a>
-        </div>
+        </nav>
+
+        <a href="tel:+12403751288" className="navbar__phone navbar__phone--desktop">
+          +1 (240) 375-1288
+        </a>
 
         <button
           type="button"

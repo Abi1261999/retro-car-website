@@ -119,9 +119,9 @@
 }
 
 .navbar__inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   height: 100%;
   width: 100%;
   padding: 0 63px;
@@ -135,22 +135,19 @@
   white-space: nowrap;
   transition: opacity var(--transition);
   flex-shrink: 0;
+  justify-self: start;
 }
 
 .navbar__logo:hover {
   opacity: 0.7;
 }
 
-.navbar__right {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-  margin-left: auto;
-}
-
 .navbar__nav {
   display: flex;
   align-items: center;
+  justify-content: center;
+  justify-self: center;
+  grid-column: 2;
 }
 
 .navbar__links {
@@ -158,7 +155,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 20px;
+  gap: 28px;
 }
 
 .navbar__links a {
@@ -179,6 +176,8 @@
   white-space: nowrap;
   transition: opacity var(--transition);
   flex-shrink: 0;
+  justify-self: end;
+  grid-column: 3;
 }
 
 .navbar__phone:hover {
@@ -231,15 +230,13 @@
   }
 
   .navbar__inner {
+    display: flex;
+    justify-content: space-between;
     padding: 0 24px;
   }
 
   .navbar__toggle {
     display: flex;
-  }
-
-  .navbar__right {
-    gap: 0;
   }
 
   .navbar__phone--desktop {
@@ -257,6 +254,8 @@
     transform: translateX(100%);
     transition: transform var(--transition);
     box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
+    grid-column: unset;
+    justify-self: unset;
   }
 
   .navbar--scrolled .navbar__nav {
@@ -293,16 +292,24 @@
   padding-right: 63px;
   padding-bottom: 16px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__content {
+  width: 100%;
+  max-width: 1614px;
 }
 
 .hero__title {
-  width: 1614px;
-  max-width: 100%;
+  width: 100%;
   height: 136px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   font-size: clamp(56px, 8.5vw, 120px);
   font-weight: 800;
   line-height: 1;
@@ -317,7 +324,7 @@
   justify-content: space-between;
   gap: 24px;
   flex-wrap: wrap;
-  max-width: 1614px;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -374,31 +381,27 @@
 /* ─── Cars ─── */
 .cars-section {
   background: #ffffff;
+  max-width: 1920px;
+  margin: 48px auto 0;
+  opacity: 1;
 }
 
-.cars-featured {
+.cars-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0;
-}
-
-.cars-more {
-  margin-top: 0;
-}
-
-.cars-more__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+  width: 100%;
 }
 
 .car-card--overlay {
   position: relative;
-  min-height: 520px;
+  width: 100%;
+  height: 541px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
 }
 
 .car-card__bg {
@@ -410,14 +413,17 @@
   object-position: center;
 }
 
+.car-card__bg--dimmed {
+  filter: grayscale(100%) brightness(0.45);
+}
+
 .car-card__gradient {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.65) 0%,
-    rgba(0, 0, 0, 0.15) 45%,
-    transparent 100%
+    0.57deg,
+    rgba(0, 0, 0, 0.7) 12.9%,
+    rgba(0, 0, 0, 0) 61.59%
   );
   pointer-events: none;
 }
@@ -425,18 +431,22 @@
 .car-card__overlay {
   position: relative;
   z-index: 1;
-  padding: 32px 36px;
+  padding: 36px 40px;
+}
+
+.car-card__overlay--cta {
+  padding-bottom: 40px;
 }
 
 .car-card__price {
   font-size: 14px;
   color: #ffffff;
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-weight: 400;
 }
 
 .car-card__name {
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(22px, 2.5vw, 30px);
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 20px;
@@ -450,43 +460,64 @@
   flex-wrap: wrap;
 }
 
-.car-card__miles {
+.car-card__miles,
+.btn-miles {
   display: inline-flex;
   align-items: center;
   padding: 10px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: var(--radius-pill);
   font-size: 13px;
+  font-weight: 400;
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(4px);
 }
 
-.cars-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+.btn-miles:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.cars-expanded {
   padding: 32px 63px 48px;
+  text-align: center;
+}
+
+.cars-expanded__message {
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 1920px) {
+  .car-card--overlay {
+    width: 960px;
+    height: 541px;
+  }
+
+  .cars-grid {
+    grid-template-columns: repeat(2, 960px);
+    justify-content: center;
+  }
 }
 
 @media (max-width: 768px) {
-  .cars-featured,
-  .cars-more__grid {
+  .cars-section {
+    margin-top: 32px;
+  }
+
+  .cars-grid {
     grid-template-columns: 1fr;
   }
 
   .car-card--overlay {
-    min-height: 400px;
+    height: auto;
+    aspect-ratio: 960 / 541;
+    min-height: 280px;
   }
 
   .car-card__overlay {
     padding: 24px 20px;
-  }
-
-  .cars-actions {
-    flex-direction: column;
-    padding: 32px 20px 64px;
   }
 }
 
