@@ -4,7 +4,6 @@ const CAR_FILES = {
   green: 'Rectangle 12 (1).png',
   muscle: 'Rectangle 13.png',
   wagon: 'Rectangle 12 (2).png',
-  cta: '7016c2ede1e3fc3b358792263629dc44 1.png',
 }
 
 function carPath(filename) {
@@ -17,7 +16,6 @@ export const carImages = {
   green: carPath(CAR_FILES.green),
   muscle: carPath(CAR_FILES.muscle),
   wagon: carPath(CAR_FILES.wagon),
-  cta: carPath(CAR_FILES.cta),
 }
 
 export const gridCars = [

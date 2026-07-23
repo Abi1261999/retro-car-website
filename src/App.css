@@ -413,21 +413,6 @@
   justify-content: flex-end;
 }
 
-.car-card__ghost {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -55%);
-  width: 72%;
-  max-width: 520px;
-  height: auto;
-  object-fit: contain;
-  opacity: 0.22;
-  filter: grayscale(100%) brightness(1.4);
-  pointer-events: none;
-  z-index: 0;
-}
-
 .car-card__bg {
   position: absolute;
   inset: 0;
