@@ -1,22 +1,17 @@
-const imageModules = import.meta.glob('../assets/cars/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
-  eager: true,
-  import: 'default',
-})
-
-function getCarImage(filename) {
-  const entry = Object.entries(imageModules).find(([path]) =>
-    path.toLowerCase().endsWith(`/${filename.toLowerCase()}`),
-  )
-  return entry ? entry[1] : ''
-}
+const carBlack = new URL('../assets/cars/Rectangle 12.png', import.meta.url).href
+const carRed = new URL('../assets/cars/Group 21.png', import.meta.url).href
+const carGreen = new URL('../assets/cars/Rectangle 12 (1).png', import.meta.url).href
+const carMuscle = new URL('../assets/cars/Rectangle 13.png', import.meta.url).href
+const carWagon = new URL('../assets/cars/Rectangle 12 (2).png', import.meta.url).href
+const carCta = new URL('../assets/cars/7016c2ede1e3fc3b358792263629dc44 1.png', import.meta.url).href
 
 export const carImages = {
-  black: getCarImage('car-black.jpg'),
-  red: getCarImage('car-red.jpg'),
-  green: getCarImage('car-green.jpg'),
-  muscle: getCarImage('car-muscle.jpg'),
-  wagon: getCarImage('car-wagon.jpg'),
-  cta: getCarImage('car-cta.jpg'),
+  black: carBlack,
+  red: carRed,
+  green: carGreen,
+  muscle: carMuscle,
+  wagon: carWagon,
+  cta: carCta,
 }
 
 export const gridCars = [
@@ -25,35 +20,35 @@ export const gridCars = [
     name: '1967 Toyota 2000GT',
     price: 39000,
     miles: '14, 900 miles',
-    image: carImages.black,
+    image: carBlack,
   },
   {
     id: 2,
     name: '1967 Toyota 2000GT',
     price: 66700,
     miles: '14, 900 miles',
-    image: carImages.red,
+    image: carRed,
   },
   {
     id: 3,
     name: '1967 Toyota 2000GT',
     price: 39000,
     miles: '14, 900 miles',
-    image: carImages.green,
+    image: carGreen,
   },
   {
     id: 4,
     name: '1967 Toyota 2000GT',
     price: 66700,
     miles: '14, 900 miles',
-    image: carImages.muscle,
+    image: carMuscle,
   },
   {
     id: 5,
     name: '1967 Toyota 2000GT',
     price: 39000,
     miles: '14, 900 miles',
-    image: carImages.wagon,
+    image: carWagon,
   },
 ]
 
