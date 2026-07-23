@@ -1,14 +1,14 @@
 :root {
-  --color-bg: #0d0d0d;
-  --color-bg-elevated: #1a1a1a;
-  --color-bg-card: #141414;
-  --color-surface: #222222;
-  --color-border: #2e2e2e;
-  --color-text: #b0b0b0;
-  --color-text-muted: #707070;
-  --color-heading: #f5f0e8;
+  --color-bg: #ffffff;
+  --color-bg-elevated: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-surface: #f7f7f7;
+  --color-border: #e5e5e5;
+  --color-text: #4a4a4a;
+  --color-text-muted: #8a8a8a;
+  --color-heading: #1a1a1a;
   --color-accent: #c9a84c;
-  --color-accent-hover: #dbb95e;
+  --color-accent-hover: #b8943f;
   --color-white: #ffffff;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -44,6 +44,7 @@ body {
 
 #root {
   min-height: 100svh;
+  background: #ffffff;
 }
 
 h1,
