@@ -20,16 +20,17 @@ export default function ServicesSection({ onSubmitApplication }) {
             <article key={service.id} className="service-card">
               <img
                 src={service.image}
-                alt=""
+                alt={service.title}
                 className="service-card__image"
                 loading="lazy"
                 decoding="async"
               />
-              <div className="service-card__overlay">
-                <p className="service-card__label">
-                  {service.num} / {service.title}
-                </p>
-              </div>
+              <div className="service-card__overlay" aria-hidden="true" />
+              <p className="service-card__label">
+                <span className="service-card__num">{service.num}</span>
+                <span className="service-card__slash"> / </span>
+                <span className="service-card__title">{service.title}</span>
+              </p>
             </article>
           ))}
         </div>

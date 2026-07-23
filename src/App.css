@@ -903,24 +903,31 @@
 .service-card__overlay {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: flex-end;
-  padding: 28px 32px;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0) 55%,
-    rgba(0, 0, 0, 0.55) 100%
+    rgba(0, 0, 0, 0) 62%,
+    rgba(0, 0, 0, 0.45) 100%
   );
   pointer-events: none;
 }
 
 .service-card__label {
+  position: absolute;
+  left: 32px;
+  bottom: 28px;
   margin: 0;
   font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
   color: #ffffff;
   text-transform: uppercase;
+  pointer-events: none;
+}
+
+.service-card__slash {
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 @media (max-width: 1860px) {
