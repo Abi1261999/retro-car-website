@@ -387,7 +387,7 @@
   background: #ffffff;
   max-width: 1920px;
   margin: 0 auto;
-  opacity: 1;
+  padding: 0;
 }
 
 .cars-grid {
@@ -395,6 +395,8 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .car-card--overlay {
@@ -405,8 +407,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border: 0.5px solid rgba(0, 0, 0, 0.08);
-  background: #111111;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 .car-card--cta {
@@ -435,7 +438,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   z-index: 0;
   display: block;
