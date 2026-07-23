@@ -3,7 +3,7 @@ import { ArrowUpRight } from './ArrowUpRight'
 
 export default function CarCTACard({ onAllCars, onMoreCars }) {
   return (
-    <article className="car-card car-card--cta">
+    <article className="car-card car-card--overlay car-card--cta">
       {carImages.cta && (
         <img
           src={carImages.cta}
