@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "sync:cars": "node scripts/sync-cars.mjs",
+    "sync:about": "node scripts/sync-about.mjs",
     "extract:cars": "python scripts/extract-cars-from-pdf.py",
     "extract:about": "python scripts/extract-about-car.py",
-    "dev": "npm run sync:cars && vite",
-    "build": "npm run sync:cars && vite build",
+    "dev": "npm run sync:cars && npm run sync:about && vite",
+    "build": "npm run sync:cars && npm run sync:about && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },

@@ -1,9 +1,9 @@
 import { aboutCarImage } from '../data/about'
 
 const stats = [
-  { value: '32', label: 'Retro car' },
-  { value: '400', label: 'Satisfied clients' },
-  { value: '5', suffix: 'Years', label: 'Delighting our clients' },
+  { id: 'left', value: '32', label: 'Retro car' },
+  { id: 'center', value: '400', label: 'Satisfied clients' },
+  { id: 'right', value: '5', suffix: 'Years', label: 'Delighting our clients' },
 ]
 
 export default function AboutSection() {
@@ -25,34 +25,29 @@ export default function AboutSection() {
 
         <div className="about-visual">
           <div className="about-stats" aria-label="Company statistics">
-            {stats.map((stat, index) => (
-              <div
-                key={stat.label}
-                className={`stat-circle stat-circle--${index + 1}`}
-              >
+            {stats.map((stat) => (
+              <div key={stat.id} className={`stat-circle stat-circle--${stat.id}`}>
                 {stat.suffix ? (
                   <div className="stat-circle__value-row">
                     <span className="stat-circle__value">{stat.value}</span>
                     <span className="stat-circle__suffix">{stat.suffix}</span>
                   </div>
                 ) : (
-                  <div className="stat-circle__value">{stat.value}</div>
+                  <span className="stat-circle__value">{stat.value}</span>
                 )}
-                <div className="stat-circle__label">{stat.label}</div>
+                <span className="stat-circle__label">{stat.label}</span>
               </div>
             ))}
           </div>
 
-          <div className="about-car-wrap">
-            <img
-              src={aboutCarImage}
-              alt=""
-              className="about-car-overlay"
-              loading="lazy"
-              decoding="async"
-              aria-hidden="true"
-            />
-          </div>
+          <img
+            src={aboutCarImage}
+            alt=""
+            className="about-car"
+            loading="lazy"
+            decoding="async"
+            aria-hidden="true"
+          />
         </div>
       </div>
     </section>
