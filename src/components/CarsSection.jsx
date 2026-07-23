@@ -14,11 +14,13 @@ export default function CarsSection() {
 
   return (
     <section id="cars" className="cars-section">
-      <div className="cars-grid">
-        {gridCars.map((car) => (
-          <CarCard key={car.id} car={car} onRent={setRentCar} />
-        ))}
-        <CarCTACard onAllCars={handleAllCars} onMoreCars={handleMoreCars} />
+      <div className="cars-section__inner">
+        <div className="cars-grid">
+          {gridCars.map((car) => (
+            <CarCard key={car.id} car={car} onRent={setRentCar} />
+          ))}
+          <CarCTACard onAllCars={handleAllCars} onMoreCars={handleMoreCars} />
+        </div>
       </div>
 
       {showAll && (
