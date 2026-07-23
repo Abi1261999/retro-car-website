@@ -23,10 +23,13 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <div className="about-stats-stage">
+        <div className="about-visual">
           <div className="about-stats" aria-label="Company statistics">
-            {stats.map((stat) => (
-              <div key={stat.label} className="stat-circle">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className={`stat-circle stat-circle--${index + 1}`}
+              >
                 {stat.suffix ? (
                   <div className="stat-circle__value-row">
                     <span className="stat-circle__value">{stat.value}</span>
