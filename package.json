@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "sync:cars": "mkdir -p public/cars && cp -f src/assets/cars/*.png public/cars/ 2>/dev/null || true",
+    "sync:cars": "python3 scripts/extract-cars-from-pdf.py && mkdir -p public/cars && cp -f src/assets/cars/*.png public/cars/ 2>/dev/null || true",
     "dev": "npm run sync:cars && vite",
     "build": "npm run sync:cars && vite build",
     "lint": "oxlint",
