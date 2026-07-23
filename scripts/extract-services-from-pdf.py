@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Extract service card images from the Main design PDF."""
+"""Extract clean service card photos (no baked-in labels) from the Main design PDF."""
 
 from __future__ import annotations
 
+import io
 import sys
 from pathlib import Path
 
@@ -29,10 +30,11 @@ RENDER_SCALE = 2
 CARD_WIDTH = 588
 CARD_HEIGHT = 507
 
-CLIPS = [
-    ('service-shipping.png', fitz.Rect(14, 3890, 14 + CARD_WIDTH, 3890 + CARD_HEIGHT)),
-    ('service-warranty.png', fitz.Rect(666, 3890, 666 + CARD_WIDTH, 3890 + CARD_HEIGHT)),
-    ('service-financing.png', fitz.Rect(1308, 3890, 1308 + CARD_WIDTH, 3890 + CARD_HEIGHT)),
+# Embedded image xrefs for the three service photos (text is a separate PDF layer).
+SERVICE_IMAGES = [
+    ('service-shipping.png', 16),
+    ('service-warranty.png', 8),
+    ('service-financing.png', 34),
 ]
 
 
@@ -44,6 +46,18 @@ def find_pdf() -> Path | None:
     return None
 
 
+def cover_crop(image: Image.Image, width: int, height: int) -> Image.Image:
+    img_width, img_height = image.size
+    scale = max(width / img_width, height / img_height)
+    resized = image.resize(
+        (int(img_width * scale), int(img_height * scale)),
+        Image.Resampling.LANCZOS,
+    )
+    left = (resized.width - width) // 2
+    top = (resized.height - height) // 2
+    return resized.crop((left, top, left + width, top + height))
+
+
 def main() -> None:
     pdf_path = find_pdf()
     if not pdf_path:
@@ -52,14 +66,12 @@ def main() -> None:
 
     doc = fitz.open(pdf_path)
     page = doc[0]
-    matrix = fitz.Matrix(RENDER_SCALE, RENDER_SCALE)
+    target_size = (CARD_WIDTH * RENDER_SCALE, CARD_HEIGHT * RENDER_SCALE)
 
-    for filename, clip in CLIPS:
-        pixmap = page.get_pixmap(matrix=matrix, clip=clip, alpha=False)
-        image = Image.frombytes('RGB', (pixmap.width, pixmap.height), pixmap.samples)
-        target_size = (CARD_WIDTH * RENDER_SCALE, CARD_HEIGHT * RENDER_SCALE)
-        if image.size != target_size:
-            image = image.resize(target_size, Image.Resampling.LANCZOS)
+    for filename, xref in SERVICE_IMAGES:
+        info = doc.extract_image(xref)
+        image = Image.open(io.BytesIO(info['image'])).convert('RGB')
+        image = cover_crop(image, *target_size)
 
         for directory in OUTPUT_DIRS:
             directory.mkdir(parents=True, exist_ok=True)
