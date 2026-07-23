@@ -1,14 +1,5 @@
-const footerNavColumns = [
-  [
-    { label: 'Cars', href: '#cars' },
-    { label: 'About Us', href: '#about' },
-    { label: 'About Us', href: '#about' },
-  ],
-  [
-    { label: 'How to rent', href: '#cars' },
-    { label: 'Contacts', href: '#contacts' },
-  ],
-]
+import { contactInfo } from '../data/contact'
+import { footerNavColumns } from '../data/footer'
 
 export default function Footer({ onNavClick }) {
   const handleNav = (e, href) => {
@@ -47,13 +38,11 @@ export default function Footer({ onNavClick }) {
         </nav>
 
         <div className="footer__contact">
-          <a href="tel:+17015811331">+1 (701) 581-1331</a>
-          <address>161 Trumpeter Ave, Soldotna, Alaska</address>
+          <a href={contactInfo.phoneHref}>{contactInfo.phone}</a>
+          <address>{contactInfo.address}</address>
         </div>
-      </div>
 
-      <div className="footer__bottom">
-        <p>&copy; Cars Classic Autotrader 2024</p>
+        <p className="footer__copyright">&copy; Cars Classic Autotrader 2024</p>
       </div>
     </footer>
   )
