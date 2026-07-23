@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import io
 import sys
 from pathlib import Path
 
@@ -26,10 +25,8 @@ UPLOAD_DIRS = [
 ]
 OUTPUT_DIRS = [ROOT / 'public' / 'cars', ROOT / 'src' / 'assets' / 'cars']
 RENDER_SCALE = 2
-TILE_WIDTH = 960 * RENDER_SCALE
-TILE_HEIGHT = 541 * RENDER_SCALE
 
-# Individual high-quality car tile PDFs → output filename
+# Individual design PDFs already frame each car for its tile.
 CAR_PDFS = [
     ('Rectangle_12_5441.pdf', 'Rectangle 12.png'),
     ('Rectangle_13_6a96.pdf', 'Group 21.png'),
@@ -50,43 +47,8 @@ def find_pdf(filename: str) -> Path | None:
     return None
 
 
-def fit_cover(image: Image.Image, width: int, height: int) -> Image.Image:
-    src_w, src_h = image.size
-    scale = max(width / src_w, height / src_h)
-    resized = image.resize(
-        (max(1, int(src_w * scale)), max(1, int(src_h * scale))),
-        Image.Resampling.LANCZOS,
-    )
-    left = (resized.width - width) // 2
-    top = (resized.height - height) // 2
-    return resized.crop((left, top, left + width, top + height))
-
-
-def render_page(pdf_path: Path, scale: int = RENDER_SCALE) -> Image.Image:
-    doc = fitz.open(pdf_path)
-    page = doc[0]
-    matrix = fitz.Matrix(scale, scale)
-    pixmap = page.get_pixmap(matrix=matrix, clip=page.rect, alpha=False)
-    image = Image.frombytes('RGB', (pixmap.width, pixmap.height), pixmap.samples)
-    doc.close()
-    return fit_cover(image, TILE_WIDTH, TILE_HEIGHT)
-
-
-def extract_embedded_image(pdf_path: Path) -> Image.Image | None:
-    doc = fitz.open(pdf_path)
-    page = doc[0]
-    images = page.get_images(full=True)
-    if not images:
-        doc.close()
-        return None
-
-    extracted = doc.extract_image(images[0][0])
-    image = Image.open(io.BytesIO(extracted['image'])).convert('RGB')
-    doc.close()
-    return fit_cover(image, TILE_WIDTH, TILE_HEIGHT)
-
-
-def render_cta_page(pdf_path: Path, scale: int = RENDER_SCALE) -> Image.Image:
+def render_tile_page(pdf_path: Path, scale: int = RENDER_SCALE) -> Image.Image:
+    """Render the PDF tile exactly as designed — full car, correct framing."""
     doc = fitz.open(pdf_path)
     page = doc[0]
     matrix = fitz.Matrix(scale, scale)
@@ -123,14 +85,14 @@ def main() -> None:
             print(f'Skipping {pdf_name}: file not found')
             continue
 
-        image = extract_embedded_image(pdf_path) or render_page(pdf_path)
+        image = render_tile_page(pdf_path)
         save_image(image, output_name)
         print(f'Extracted {output_name} from {pdf_name} ({image.width}×{image.height})')
         extracted_any = True
 
     cta_path = find_pdf(CTA_PDF)
     if cta_path:
-        cta_image = remove_white_background(render_cta_page(cta_path))
+        cta_image = remove_white_background(render_tile_page(cta_path))
         save_image(cta_image, CTA_OUTPUT)
         print(f'Extracted {CTA_OUTPUT} from {CTA_PDF} ({cta_image.width}×{cta_image.height}, transparent)')
         extracted_any = True
