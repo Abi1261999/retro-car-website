@@ -1,17 +1,22 @@
-import carBlack from '../assets/cars/car-black.jpg'
-import carRed from '../assets/cars/car-red.jpg'
-import carGreen from '../assets/cars/car-green.jpg'
-import carMuscle from '../assets/cars/car-muscle.jpg'
-import carWagon from '../assets/cars/car-wagon.jpg'
-import carCta from '../assets/cars/car-cta.jpg'
+const imageModules = import.meta.glob('../assets/cars/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
+  eager: true,
+  import: 'default',
+})
+
+function getCarImage(filename) {
+  const entry = Object.entries(imageModules).find(([path]) =>
+    path.toLowerCase().endsWith(`/${filename.toLowerCase()}`),
+  )
+  return entry ? entry[1] : ''
+}
 
 export const carImages = {
-  black: carBlack,
-  red: carRed,
-  green: carGreen,
-  muscle: carMuscle,
-  wagon: carWagon,
-  cta: carCta,
+  black: getCarImage('car-black.jpg'),
+  red: getCarImage('car-red.jpg'),
+  green: getCarImage('car-green.jpg'),
+  muscle: getCarImage('car-muscle.jpg'),
+  wagon: getCarImage('car-wagon.jpg'),
+  cta: getCarImage('car-cta.jpg'),
 }
 
 export const gridCars = [
@@ -20,35 +25,35 @@ export const gridCars = [
     name: '1967 Toyota 2000GT',
     price: 39000,
     miles: '14, 900 miles',
-    image: carBlack,
+    image: carImages.black,
   },
   {
     id: 2,
     name: '1967 Toyota 2000GT',
     price: 66700,
     miles: '14, 900 miles',
-    image: carRed,
+    image: carImages.red,
   },
   {
     id: 3,
     name: '1967 Toyota 2000GT',
     price: 39000,
     miles: '14, 900 miles',
-    image: carGreen,
+    image: carImages.green,
   },
   {
     id: 4,
     name: '1967 Toyota 2000GT',
     price: 66700,
     miles: '14, 900 miles',
-    image: carMuscle,
+    image: carImages.muscle,
   },
   {
     id: 5,
     name: '1967 Toyota 2000GT',
     price: 39000,
     miles: '14, 900 miles',
-    image: carWagon,
+    image: carImages.wagon,
   },
 ]
 
