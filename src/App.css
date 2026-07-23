@@ -386,7 +386,7 @@
 .cars-section {
   background: #ffffff;
   max-width: 1920px;
-  margin: 145px auto 0;
+  margin: 0 auto;
   opacity: 1;
 }
 
@@ -435,6 +435,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  z-index: 0;
+  display: block;
 }
 
 .car-card__bg--dimmed {
