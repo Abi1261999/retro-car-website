@@ -603,9 +603,8 @@
 .about-visual {
   position: relative;
   width: 100%;
-  max-width: 1410px;
-  margin: 0 auto;
-  min-height: 480px;
+  margin: 0;
+  min-height: 620px;
 }
 
 .about-stats {
@@ -614,42 +613,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 18px;
   width: 100%;
 }
 
 .stat-circle {
   position: relative;
   flex: 0 0 auto;
-  width: 330px;
-  height: 330px;
-  margin-left: -70px;
+  width: 586px;
+  height: 582px;
   border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid rgba(58, 60, 53, 0.22);
+  background: transparent;
+  border: 1px solid #3a3c35;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 24px;
+  padding: 32px;
   box-sizing: border-box;
 }
 
-.stat-circle--left {
-  margin-left: 0;
+.stat-circle--left,
+.stat-circle--center,
+.stat-circle--right {
   z-index: 1;
 }
 
-.stat-circle--center {
-  z-index: 3;
-}
-
-.stat-circle--right {
-  z-index: 2;
-}
-
 .stat-circle__value {
-  font-size: 88px;
+  font-size: 120px;
   font-weight: 700;
   line-height: 1;
   color: #3a3c35;
@@ -660,20 +652,20 @@
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .stat-circle__suffix {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 500;
   color: #3a3c35;
   line-height: 1;
 }
 
 .stat-circle__label {
-  margin-top: 14px;
-  font-size: 15px;
-  line-height: 1.3;
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.35;
   color: #7a7a76;
 }
 
@@ -683,37 +675,52 @@
   bottom: 0;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1410px;
   height: auto;
   max-height: 72%;
   object-fit: contain;
   object-position: center bottom;
-  z-index: 4;
+  z-index: 2;
   pointer-events: none;
   display: block;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1860px) {
   .stat-circle {
-    width: 260px;
-    height: 260px;
-    margin-left: -56px;
+    width: calc((100% - 36px) / 3);
+    height: auto;
+    aspect-ratio: 586 / 582;
+    max-width: 586px;
   }
 
   .stat-circle__value {
-    font-size: 68px;
+    font-size: clamp(64px, 6.5vw, 120px);
   }
 
   .stat-circle__suffix {
-    font-size: 22px;
+    font-size: clamp(22px, 2vw, 36px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .about-visual {
+    min-height: 480px;
   }
 
-  .about-visual {
-    min-height: 400px;
+  .about-stats {
+    gap: 14px;
+  }
+
+  .stat-circle {
+    padding: 20px;
+  }
+
+  .stat-circle__label {
+    font-size: 14px;
+    margin-top: 12px;
   }
 
   .about-car {
-    max-height: 68%;
+    max-height: 65%;
   }
 }
 
@@ -730,14 +737,11 @@
   }
 
   .stat-circle {
-    width: 200px;
-    height: 200px;
-    margin-left: -44px;
     padding: 16px;
   }
 
   .stat-circle__value {
-    font-size: 52px;
+    font-size: 48px;
   }
 
   .stat-circle__suffix {
@@ -750,7 +754,7 @@
   }
 
   .about-visual {
-    min-height: 320px;
+    min-height: 360px;
   }
 }
 
@@ -763,15 +767,16 @@
     padding: 48px 24px 56px;
   }
 
+  .about-stats {
+    gap: 10px;
+  }
+
   .stat-circle {
-    width: 150px;
-    height: 150px;
-    margin-left: -32px;
     padding: 12px;
   }
 
   .stat-circle__value {
-    font-size: 40px;
+    font-size: 36px;
   }
 
   .stat-circle__suffix {
@@ -783,33 +788,37 @@
   }
 
   .about-visual {
-    min-height: 260px;
+    min-height: 280px;
   }
 }
 
 @media (max-width: 520px) {
+  .about-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+
   .stat-circle {
-    width: 110px;
-    height: 110px;
-    margin-left: -24px;
-    padding: 8px;
+    width: min(280px, 80vw);
+    height: auto;
+    aspect-ratio: 586 / 582;
+    padding: 16px;
   }
 
   .stat-circle__value {
-    font-size: 30px;
+    font-size: 48px;
   }
 
   .stat-circle__suffix {
-    font-size: 11px;
+    font-size: 16px;
   }
 
   .stat-circle__label {
-    font-size: 8px;
-    margin-top: 4px;
+    font-size: 12px;
   }
 
   .about-visual {
-    min-height: 200px;
+    min-height: 320px;
   }
 }
 
