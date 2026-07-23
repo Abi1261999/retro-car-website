@@ -558,76 +558,232 @@
 
 /* ─── About ─── */
 .about-section {
-  background: #ffffff;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  background: #f7f7f5;
+  padding: 96px 63px 112px;
 }
 
-.about-grid {
+.about-section__inner {
+  width: 100%;
+  max-width: 1410px;
+  margin: 0 auto;
+}
+
+.about-header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 64px;
-  align-items: center;
+  align-items: start;
+  margin-bottom: 72px;
+}
+
+.about-title {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: #3a3c35;
+}
+
+.about-title__muted {
+  color: #9a9a96;
+  font-weight: 700;
 }
 
 .about-description {
-  font-size: 17px;
+  margin: 0;
+  max-width: 520px;
+  justify-self: end;
+  font-size: 16px;
   line-height: 1.7;
-  margin-top: 24px;
-  color: var(--color-text);
+  color: #5a5a56;
+}
+
+.about-stats-stage {
+  position: relative;
+  width: 100%;
+  height: 545px;
 }
 
 .about-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 24px;
 }
 
-.stat-card {
+.stat-circle {
+  flex: 0 0 auto;
+  width: 360px;
+  height: 360px;
+  margin-left: -56px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(58, 60, 53, 0.14);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 32px 16px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  transition: border-color var(--transition);
+  padding: 24px;
 }
 
-.stat-card:hover {
-  border-color: var(--color-heading);
+.stat-circle:first-child {
+  margin-left: 0;
 }
 
-.stat-card__value {
-  font-size: clamp(40px, 6vw, 64px);
-  font-weight: 800;
-  color: var(--color-heading);
+.stat-circle__value {
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 700;
   line-height: 1;
-  margin-bottom: 8px;
+  color: #3a3c35;
+  letter-spacing: -0.03em;
 }
 
-.stat-card__label {
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: var(--color-text-muted);
+.stat-circle__value-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+}
+
+.stat-circle__suffix {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 500;
+  color: #3a3c35;
+  line-height: 1;
+}
+
+.stat-circle__label {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.3;
+  color: #6a6a66;
+}
+
+.about-car-overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 1410px;
+  height: 545px;
+  object-fit: contain;
+  object-position: center bottom;
+  opacity: 1;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+  .about-stats-stage {
+    height: 480px;
+  }
+
+  .about-car-overlay {
+    height: 480px;
+  }
+
+  .stat-circle {
+    width: 300px;
+    height: 300px;
+    margin-left: -44px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 48px;
+  }
+
+  .about-description {
+    justify-self: start;
+    max-width: none;
+  }
+
+  .about-stats-stage {
+    height: 420px;
+  }
+
+  .about-car-overlay {
+    height: 420px;
+  }
+
+  .stat-circle {
+    width: 240px;
+    height: 240px;
+    margin-left: -36px;
+  }
+
+  .stat-circle__label {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .about-section {
+    padding: 72px 24px 80px;
   }
 
-  .about-stats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+  .about-stats-stage {
+    height: 360px;
   }
 
-  .stat-card {
-    padding: 20px 8px;
+  .about-car-overlay {
+    height: 360px;
+  }
+
+  .stat-circle {
+    width: 180px;
+    height: 180px;
+    margin-left: -28px;
+    padding: 16px;
+  }
+
+  .stat-circle__value {
+    font-size: 48px;
+  }
+
+  .stat-circle__suffix {
+    font-size: 18px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .about-stats {
-    grid-template-columns: 1fr;
+    padding-top: 8px;
+  }
+
+  .about-stats-stage {
+    height: 300px;
+  }
+
+  .about-car-overlay {
+    height: 300px;
+  }
+
+  .stat-circle {
+    width: 130px;
+    height: 130px;
+    margin-left: -20px;
+    padding: 12px;
+  }
+
+  .stat-circle__value {
+    font-size: 36px;
+  }
+
+  .stat-circle__suffix {
+    font-size: 14px;
+  }
+
+  .stat-circle__label {
+    font-size: 11px;
+    margin-top: 8px;
   }
 }
 
