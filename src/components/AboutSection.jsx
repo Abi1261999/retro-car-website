@@ -43,14 +43,16 @@ export default function AboutSection() {
             ))}
           </div>
 
-          <img
-            src={aboutCarImage}
-            alt=""
-            className="about-car-overlay"
-            loading="lazy"
-            decoding="async"
-            aria-hidden="true"
-          />
+          <div className="about-car-wrap">
+            <img
+              src={aboutCarImage}
+              alt=""
+              className="about-car-overlay"
+              loading="lazy"
+              decoding="async"
+              aria-hidden="true"
+            />
+          </div>
         </div>
       </div>
     </section>
