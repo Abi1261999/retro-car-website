@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import CarsSection from '../components/CarsSection'
@@ -10,20 +9,21 @@ import ContactSection from '../components/ContactSection'
 import Footer from '../components/Footer'
 import Modal from '../components/Modal'
 import ApplicationForm from '../components/ApplicationForm'
+import { useRouter } from '../hooks/useAppRouter'
 import { useSiteNavigation } from '../hooks/useSiteNavigation'
 
 export default function HomePage() {
   const [applicationOpen, setApplicationOpen] = useState(false)
   const { navigateTo, scrollToId } = useSiteNavigation()
-  const location = useLocation()
+  const { hash } = useRouter()
 
   useEffect(() => {
-    if (!location.hash) return
+    if (!hash) return
 
-    const id = location.hash.replace('#', '')
+    const id = hash.replace('#', '')
     const timer = window.setTimeout(() => scrollToId(id), 120)
     return () => window.clearTimeout(timer)
-  }, [location.hash, scrollToId])
+  }, [hash, scrollToId])
 
   return (
     <>
