@@ -17,6 +17,7 @@
   --nav-top: 0px;
   --page-top-gap: 24px;
   --page-top-offset: calc(var(--nav-top) + var(--nav-height) + var(--page-top-gap));
+  --page-padding-x: 63px;
   --container-max: 1920px;
   --section-padding: 64px;
   --radius: 8px;
@@ -32,6 +33,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -42,6 +44,7 @@ body {
   color: var(--color-text);
   background: #FFFFFF;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 #root {
@@ -67,6 +70,7 @@ a {
 button {
   font-family: inherit;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 img {
@@ -94,6 +98,18 @@ address {
     --section-padding: 48px;
     --nav-height: 72px;
     --nav-top: 0px;
+    --page-top-gap: 16px;
+    --page-padding-x: 24px;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-padding-x: 20px;
   }
 
   .container {

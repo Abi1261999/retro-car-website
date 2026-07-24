@@ -589,11 +589,13 @@
 
 @media (max-width: 768px) {
   .cars-page {
-    padding: calc(var(--nav-height) + 16px) 24px 56px;
+    padding: calc(var(--nav-height) + 16px) var(--page-padding-x) 56px;
   }
 
   .cars-page__header {
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
     margin-bottom: 28px;
   }
 
@@ -1098,6 +1100,12 @@
   letter-spacing: 0.04em;
 }
 
+@media (max-width: 1200px) and (min-width: 901px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1860px) {
   .services-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1125,13 +1133,14 @@
 
   .services-grid {
     grid-template-columns: 1fr;
-    max-width: 588px;
-    margin: 0 auto;
+    max-width: none;
+    width: 100%;
   }
 
   .service-card {
-    max-width: 588px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
   }
 }
 
@@ -2101,10 +2110,6 @@
 }
 
 @media (max-width: 768px) {
-  .car-detail-page {
-    padding: calc(var(--nav-height) + 16px) 24px 0;
-  }
-
   .car-detail-page__heading {
     margin-bottom: 28px;
   }
@@ -2121,5 +2126,287 @@
 
   .btn-rent-detail {
     max-width: none;
+  }
+}
+
+/* ─── Mobile compatibility (site-wide) ─── */
+@media (max-width: 900px) {
+  .navbar__inner {
+    padding: 0 var(--page-padding-x);
+  }
+
+  .navbar__nav {
+    padding: 32px var(--page-padding-x);
+  }
+
+  .hero {
+    padding-left: var(--page-padding-x);
+    padding-right: var(--page-padding-x);
+  }
+
+  .cars-section {
+    padding: 0 var(--page-padding-x);
+  }
+
+  .cars-expanded {
+    padding: 24px var(--page-padding-x) 40px;
+  }
+
+  .about-section {
+    padding: 48px var(--page-padding-x) 56px;
+  }
+
+  .services-section {
+    padding: 56px var(--page-padding-x) 64px;
+  }
+
+  .services-page {
+    padding: calc(var(--nav-height) + 16px) var(--page-padding-x) 56px;
+  }
+
+  .service-detail-page {
+    padding: calc(var(--nav-height) + 16px) var(--page-padding-x) 0;
+  }
+
+  .contacts-page {
+    padding: calc(var(--nav-height) + 16px) var(--page-padding-x) 0;
+  }
+
+  .about-page {
+    padding: calc(var(--nav-height) + 16px) var(--page-padding-x) 0;
+  }
+
+  .car-detail-page {
+    padding: calc(var(--nav-height) + 16px) var(--page-padding-x) 0;
+  }
+
+  .faq-section {
+    padding: 56px var(--page-padding-x) 72px;
+  }
+
+  .contact-section {
+    padding: 56px var(--page-padding-x) 0;
+  }
+
+  .footer {
+    padding: 40px var(--page-padding-x) 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cars-grid--page {
+    grid-template-columns: 1fr;
+  }
+
+  .car-card__overlay,
+  .car-card__overlay--cta {
+    padding: 20px 16px 24px;
+  }
+
+  .car-card__actions {
+    gap: 10px;
+  }
+
+  .car-detail-page__heading {
+    font-size: clamp(36px, 10vw, 56px);
+    margin-bottom: 24px;
+  }
+
+  .car-detail-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+
+  .car-detail-gallery__main {
+    min-height: 240px;
+  }
+
+  .car-detail-info {
+    margin-top: 40px;
+    padding-top: 40px;
+    gap: 32px;
+  }
+
+  .car-detail-specs__row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .contact-title,
+  .contact-page__title,
+  .faq-title {
+    font-size: clamp(36px, 10vw, 64px);
+  }
+
+  .about-page__inner,
+  .service-detail-page__inner,
+  .car-detail-page__inner {
+    padding-bottom: 48px;
+  }
+
+  .modal {
+    padding: 28px 20px;
+    max-height: 85svh;
+  }
+
+  .modal-overlay {
+    padding: 16px;
+    align-items: center;
+  }
+
+  .modal-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer__logo {
+    font-size: 20px;
+  }
+
+  .footer__contact a {
+    font-size: clamp(18px, 5vw, 24px);
+  }
+
+  .footer__copyright {
+    margin-top: 32px;
+  }
+
+  .btn-services-cta,
+  .btn-contact-cta,
+  .btn-faq-cta {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .services-header--page {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .car-detail-gallery__main {
+    min-height: 200px;
+  }
+
+  .car-detail-gallery__thumb {
+    min-height: 90px;
+  }
+
+  .faq-item__question {
+    font-size: 17px;
+    padding: 20px 0;
+  }
+
+  .service-detail-page__title {
+    font-size: clamp(28px, 8vw, 44px);
+    margin-bottom: 24px;
+  }
+
+  .service-detail-content {
+    gap: 24px;
+  }
+
+  .service-detail-intro__copy p {
+    font-size: 15px;
+  }
+
+  .about-page-intro__copy p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__logo {
+    font-size: 13px;
+    line-height: 1.2;
+    max-width: calc(100vw - 88px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hero__title {
+    font-size: clamp(32px, 10vw, 48px);
+    min-height: auto;
+  }
+
+  .hero__subtitle {
+    font-size: 13px;
+  }
+
+  .car-card__name {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .car-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .btn-rent,
+  .btn-miles {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .btn-service-cta,
+  .btn-read-reviews,
+  .btn-rent-detail {
+    width: 100%;
+    max-width: none;
+    min-height: 44px;
+  }
+
+  .stat-circle {
+    width: min(260px, 88vw);
+  }
+
+  .about-visual {
+    min-height: 300px;
+  }
+
+  .about-car {
+    max-height: 50%;
+  }
+
+  .service-card__label {
+    left: 20px;
+    bottom: 20px;
+    font-size: 13px;
+  }
+
+  .contact-map {
+    border-radius: 8px;
+  }
+}
+
+@media (hover: none) {
+  .service-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .service-card:hover .service-card__image {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
