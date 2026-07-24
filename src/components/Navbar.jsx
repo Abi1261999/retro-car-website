@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 const navLinks = [
-  { label: 'Cars', href: '#cars' },
+  { label: 'Cars', href: '/cars' },
   { label: 'About Us', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Contacts', href: '#contacts' },
@@ -10,6 +11,7 @@ const navLinks = [
 export default function Navbar({ onNavClick }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -24,6 +26,10 @@ export default function Navbar({ onNavClick }) {
     }
   }, [menuOpen])
 
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location.pathname])
+
   const handleNav = (e, href) => {
     e.preventDefault()
     setMenuOpen(false)
@@ -34,9 +40,9 @@ export default function Navbar({ onNavClick }) {
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner">
         <a
-          href="#hero"
+          href="/"
           className="navbar__logo"
-          onClick={(e) => handleNav(e, '#hero')}
+          onClick={(e) => handleNav(e, '/')}
         >
           Cars Classic Autotrader
         </a>

@@ -542,6 +542,66 @@
   color: var(--color-text-muted);
 }
 
+/* ─── Cars page ─── */
+.cars-page {
+  background: #ffffff;
+  padding: calc(var(--nav-top) + var(--nav-height) + 41px) 63px 80px;
+}
+
+.cars-page__inner {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.cars-page__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.cars-page__title {
+  margin: 0;
+  font-size: clamp(56px, 6.5vw, 124px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  color: #3a3c35;
+}
+
+.cars-page__count {
+  margin: 0;
+  padding: 8px 18px;
+  border: 1px solid #3a3c35;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #3a3c35;
+  white-space: nowrap;
+}
+
+.cars-grid--page {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .cars-page {
+    padding: calc(var(--nav-top) + var(--nav-height) + 24px) 24px 56px;
+  }
+
+  .cars-page__header {
+    align-items: center;
+    margin-bottom: 28px;
+  }
+
+  .cars-page__title {
+    font-size: clamp(40px, 11vw, 72px);
+  }
+}
+
 @media (max-width: 768px) {
   .cars-section {
     padding: 0 24px 0;

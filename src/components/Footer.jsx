@@ -12,9 +12,9 @@ export default function Footer({ onNavClick }) {
       <div className="footer__inner">
         <div className="footer__brand">
           <a
-            href="#hero"
+            href="/"
             className="footer__logo"
-            onClick={(e) => handleNav(e, '#hero')}
+            onClick={(e) => handleNav(e, '/')}
           >
             Cars Classic Autotrader
           </a>
