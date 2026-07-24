@@ -59,6 +59,12 @@ export function useSiteNavigation() {
         return
       }
 
+      if (href.startsWith('/services/')) {
+        navigate(href)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        return
+      }
+
       if (href.startsWith('#')) {
         const id = href.replace('#', '')
 

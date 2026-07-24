@@ -5,12 +5,14 @@ import CarsPage from './pages/CarsPage'
 import CarDetailPage from './pages/CarDetailPage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
+import ServiceDetailPage from './pages/ServiceDetailPage'
 import ContactsPage from './pages/ContactsPage'
 import './App.css'
 
 function AppRoutes() {
   const { pathname } = useRouter()
   const carMatch = pathname.match(/^\/cars\/(\d+)$/)
+  const serviceMatch = pathname.match(/^\/services\/([^/]+)$/)
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' })
@@ -18,6 +20,10 @@ function AppRoutes() {
 
   if (carMatch) {
     return <CarDetailPage carId={carMatch[1]} />
+  }
+
+  if (serviceMatch) {
+    return <ServiceDetailPage serviceId={serviceMatch[1]} />
   }
 
   if (pathname === '/cars') {

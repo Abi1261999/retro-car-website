@@ -1176,6 +1176,110 @@
   }
 }
 
+/* ─── Service detail page ─── */
+.service-detail-page {
+  background: #FFFFFF;
+  padding: var(--page-top-offset) 63px 0;
+}
+
+.service-detail-page__inner {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+.service-detail-page__inner--missing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  min-height: 40vh;
+}
+
+.service-detail-intro {
+  display: grid;
+  grid-template-columns: minmax(280px, 520px) minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+  margin-bottom: 52px;
+}
+
+.service-detail-intro__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.service-detail-page__title {
+  margin: 0;
+  font-size: clamp(40px, 5.5vw, 88px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  color: #3a3c35;
+  text-transform: uppercase;
+}
+
+.btn-service-cta {
+  background: #3a3c35;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background var(--transition);
+}
+
+.btn-service-cta:hover {
+  background: #2f312b;
+  color: #ffffff;
+}
+
+.service-detail-intro__copy p {
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #3a3c35;
+}
+
+.service-detail-intro__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.service-detail__image {
+  display: block;
+  width: 100%;
+  max-width: 1804px;
+  height: auto;
+  aspect-ratio: 588 / 507;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .service-detail-page {
+    padding: calc(var(--nav-height) + 16px) 24px 0;
+  }
+
+  .service-detail-intro {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
+  }
+
+  .service-detail-intro__left {
+    gap: 24px;
+  }
+
+  .service-detail-page__title {
+    font-size: clamp(32px, 9vw, 56px);
+  }
+}
+
 /* ─── Contacts page ─── */
 .contacts-page {
   background: #FFFFFF;

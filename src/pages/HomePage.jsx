@@ -32,7 +32,10 @@ export default function HomePage() {
         <Hero onFindCar={() => navigateTo('#cars')} />
         <CarsSection onViewAllCars={() => navigateTo('/cars')} />
         <AboutSection />
-        <ServicesSection onSubmitApplication={() => setApplicationOpen(true)} />
+        <ServicesSection
+          onSubmitApplication={() => setApplicationOpen(true)}
+          onServiceClick={(service) => navigateTo(`/services/${service.id}`)}
+        />
         <FAQSection onAskQuestion={() => navigateTo('#contacts')} />
         <ContactSection onSubmitApplication={() => setApplicationOpen(true)} />
       </main>
