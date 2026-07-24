@@ -1,13 +1,10 @@
-import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import CarCard from '../components/CarCard'
 import Footer from '../components/Footer'
-import RentCarModal from '../components/RentCarModal'
 import { allCars, TOTAL_CARS } from '../data/cars'
 import { useSiteNavigation } from '../hooks/useSiteNavigation'
 
 export default function CarsPage() {
-  const [rentCar, setRentCar] = useState(null)
   const { navigateTo } = useSiteNavigation()
 
   return (
@@ -22,14 +19,16 @@ export default function CarsPage() {
 
           <div className="cars-grid cars-grid--page">
             {allCars.map((car) => (
-              <CarCard key={car.id} car={car} onRent={setRentCar} />
+              <CarCard
+                key={car.id}
+                car={car}
+                onRent={(selectedCar) => navigateTo(`/cars/${selectedCar.id}`)}
+              />
             ))}
           </div>
         </div>
       </main>
       <Footer onNavClick={navigateTo} />
-
-      <RentCarModal car={rentCar} onClose={() => setRentCar(null)} />
     </>
   )
 }

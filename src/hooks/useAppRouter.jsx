@@ -30,12 +30,9 @@ export function AppRouterProvider({ children }) {
 
   const navigate = useCallback((to) => {
     if (to.startsWith('#')) {
-      const nextUrl = `${window.location.pathname}${to}`
-      if (`${window.location.pathname}${window.location.hash}` !== nextUrl) {
-        window.history.pushState({}, '', nextUrl)
-      }
+      window.history.pushState({}, '', `/${to}`)
+      setPathname('/')
       setHash(to)
-      setPathname(getPathname())
       return
     }
 
