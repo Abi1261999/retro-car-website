@@ -40,6 +40,19 @@ export function useSiteNavigation() {
         return
       }
 
+      if (href === '/contacts' || href === '#contacts') {
+        if (pathname === '/') {
+          scrollToId('contacts')
+          return
+        }
+
+        if (pathname !== '/contacts') {
+          navigate('/contacts')
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        return
+      }
+
       if (href.startsWith('/cars/')) {
         navigate(href)
         window.scrollTo({ top: 0, behavior: 'smooth' })
