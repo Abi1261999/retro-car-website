@@ -1179,8 +1179,7 @@
 /* ─── Contacts page ─── */
 .contacts-page {
   background: #FFFFFF;
-  padding: var(--page-top-offset) 63px 80px;
-  min-height: calc(100svh - var(--nav-height));
+  padding: var(--page-top-offset) 58px 0;
 }
 
 .contacts-page__inner {
@@ -1189,19 +1188,15 @@
   margin: 0 auto;
 }
 
-.contacts-header {
+.contact-header--page {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 48px;
+  margin-bottom: 52px;
 }
 
-.contacts-header--page {
-  align-items: center;
-}
-
-.contacts-page__title,
-.contacts-title {
+.contact-page__title {
   margin: 0;
   font-size: clamp(56px, 6.5vw, 124px);
   line-height: 1;
@@ -1210,66 +1205,26 @@
   color: #3a3c35;
 }
 
-.contacts-header__info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
-  gap: 10px;
-  max-width: 360px;
-  flex-shrink: 0;
-}
-
-.contacts-phone {
-  font-size: clamp(20px, 1.25vw, 24px);
-  font-weight: 700;
-  color: #3a3c35;
-  transition: opacity var(--transition);
-}
-
-.contacts-phone:hover {
-  opacity: 0.65;
-}
-
-.contacts-address {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #3a3c35;
-  font-style: normal;
-}
-
-.btn-contacts-cta {
-  margin-top: 12px;
-  padding: 10px 22px;
-  font-size: 14px;
-  font-weight: 400;
-  transition: background var(--transition), color var(--transition);
-}
-
-.btn-contacts-cta:hover {
-  background: #3a3c35;
-  color: #ffffff;
-}
-
 @media (max-width: 900px) {
   .contacts-page {
-    padding: calc(var(--nav-height) + 16px) 24px 56px;
+    padding: calc(var(--nav-height) + 16px) 24px 0;
   }
 
-  .contacts-header,
-  .contacts-header--page {
+  .contact-header--page {
     flex-direction: column;
     align-items: flex-start;
     gap: 28px;
+    margin-bottom: 36px;
   }
 
-  .contacts-header__info {
+  .contact-header--page .contact-header__info {
+    justify-self: start;
     align-items: flex-start;
     text-align: left;
     max-width: none;
   }
 
-  .contacts-page__title {
+  .contact-page__title {
     font-size: clamp(40px, 11vw, 72px);
   }
 }
@@ -1492,6 +1447,12 @@
   padding: 10px 22px;
   font-size: 14px;
   font-weight: 400;
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-contact-cta:hover {
+  background: #3a3c35;
+  color: #ffffff;
 }
 
 .contact-map {

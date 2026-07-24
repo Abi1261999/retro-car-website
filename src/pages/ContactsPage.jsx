@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Navbar from '../components/Navbar'
-import ContactsContent from '../components/ContactsContent'
+import ContactContent from '../components/ContactContent'
 import Footer from '../components/Footer'
 import Modal from '../components/Modal'
 import ApplicationForm from '../components/ApplicationForm'
@@ -15,7 +15,7 @@ export default function ContactsPage() {
       <Navbar onNavClick={navigateTo} />
       <main className="contacts-page">
         <div className="contacts-page__inner">
-          <ContactsContent
+          <ContactContent
             isPage
             onSubmitApplication={() => setApplicationOpen(true)}
           />
