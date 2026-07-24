@@ -24,6 +24,12 @@ export function useSiteNavigation() {
         return
       }
 
+      if (href.startsWith('/cars/')) {
+        navigate(href)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        return
+      }
+
       if (href.startsWith('#')) {
         const id = href.replace('#', '')
 

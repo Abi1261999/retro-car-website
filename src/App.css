@@ -1585,3 +1585,220 @@
     gap: 24px;
   }
 }
+
+/* ─── Car detail page ─── */
+.car-detail-page {
+  background: #ffffff;
+  padding: calc(var(--nav-top) + var(--nav-height) + 41px) 63px 0;
+}
+
+.car-detail-page__inner {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+.car-detail-page__inner--missing {
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.car-detail-page__heading {
+  margin: 0 0 48px;
+  font-size: clamp(56px, 6.5vw, 124px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  color: #3a3c35;
+}
+
+.car-detail-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.98fr) repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(180px, 1fr));
+  gap: 2px;
+  min-height: 420px;
+  max-height: 600px;
+}
+
+.car-detail-gallery__thumbs {
+  display: contents;
+}
+
+.car-detail-gallery__main,
+.car-detail-gallery__thumb {
+  position: relative;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
+.car-detail-gallery__main {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.car-detail-gallery__main img,
+.car-detail-gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.car-detail-gallery__thumb--active {
+  outline: 2px solid #3a3c35;
+  outline-offset: -2px;
+}
+
+.car-detail-info {
+  display: grid;
+  grid-template-columns: minmax(280px, 520px) minmax(0, 1fr);
+  gap: 64px;
+  margin-top: 56px;
+  padding-top: 56px;
+  border-top: 1px solid #d5d4d2;
+}
+
+.car-detail-info__title {
+  margin: 0 0 16px;
+  font-size: clamp(22px, 2vw, 24px);
+  line-height: 1.2;
+  font-weight: 700;
+  color: #3a3c35;
+}
+
+.car-detail-info__price {
+  display: inline-flex;
+  margin: 0 0 32px;
+  padding: 8px 18px;
+  border: 1px solid #3a3c35;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  line-height: 1.2;
+  color: #3a3c35;
+}
+
+.car-detail-specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 48px;
+  margin: 0 0 40px;
+}
+
+.car-detail-specs__row {
+  display: grid;
+  grid-template-columns: minmax(90px, 120px) minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.car-detail-specs__row dt {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6f6f6f;
+}
+
+.car-detail-specs__row dd {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #3a3c35;
+}
+
+.btn-rent-detail {
+  width: 100%;
+  max-width: 360px;
+  justify-content: center;
+  background: #3a3c35;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.btn-rent-detail:hover {
+  background: #2f312b;
+  color: #ffffff;
+}
+
+.car-detail-about__title {
+  margin: 0 0 20px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #3a3c35;
+}
+
+.car-detail-about__subtitle {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #3a3c35;
+}
+
+.car-detail-about__copy p {
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #3a3c35;
+}
+
+.car-detail-about__copy p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 1100px) {
+  .car-detail-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto repeat(2, minmax(140px, 1fr));
+    max-height: none;
+  }
+
+  .car-detail-gallery__main {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-height: 280px;
+  }
+
+  .car-detail-info {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .car-detail-page {
+    padding: calc(var(--nav-top) + var(--nav-height) + 24px) 24px 0;
+  }
+
+  .car-detail-page__heading {
+    margin-bottom: 28px;
+  }
+
+  .car-detail-gallery {
+    grid-template-columns: 1fr 1fr;
+    min-height: 0;
+  }
+
+  .car-detail-specs {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .btn-rent-detail {
+    max-width: none;
+  }
+}
