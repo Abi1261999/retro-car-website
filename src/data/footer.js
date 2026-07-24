@@ -6,6 +6,6 @@ export const footerNavColumns = [
   ],
   [
     { label: 'How to rent', href: '#cars' },
-    { label: 'Contacts', href: '#contacts' },
+    { label: 'Contacts', href: '/contacts' },
   ],
 ]

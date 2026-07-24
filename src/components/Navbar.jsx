@@ -5,7 +5,7 @@ const navLinks = [
   { label: 'Cars', href: '/cars' },
   { label: 'About Us', href: '/about' },
   { label: 'Services', href: '/services' },
-  { label: 'Contacts', href: '#contacts' },
+  { label: 'Contacts', href: '/contacts' },
 ]
 
 export default function Navbar({ onNavClick }) {
