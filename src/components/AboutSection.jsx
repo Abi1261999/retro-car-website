@@ -1,10 +1,4 @@
-import { aboutCarImage } from '../data/about'
-
-const stats = [
-  { id: 'left', value: '32', label: 'Retro car' },
-  { id: 'center', value: '400', label: 'Satisfied clients' },
-  { id: 'right', value: '5', suffix: 'Years', label: 'Delighting our clients' },
-]
+import AboutNumbersSection from './AboutNumbersSection'
 
 export default function AboutSection() {
   return (
@@ -23,32 +17,7 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <div className="about-visual">
-          <div className="about-stats" aria-label="Company statistics">
-            {stats.map((stat) => (
-              <div key={stat.id} className={`stat-circle stat-circle--${stat.id}`}>
-                {stat.suffix ? (
-                  <div className="stat-circle__value-row">
-                    <span className="stat-circle__value">{stat.value}</span>
-                    <span className="stat-circle__suffix">{stat.suffix}</span>
-                  </div>
-                ) : (
-                  <span className="stat-circle__value">{stat.value}</span>
-                )}
-                <span className="stat-circle__label">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-
-          <img
-            src={aboutCarImage}
-            alt=""
-            className="about-car"
-            loading="lazy"
-            decoding="async"
-            aria-hidden="true"
-          />
-        </div>
+        <AboutNumbersSection />
       </div>
     </section>
   )

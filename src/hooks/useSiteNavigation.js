@@ -24,6 +24,14 @@ export function useSiteNavigation() {
         return
       }
 
+      if (href === '/about' || href === '#about') {
+        if (pathname !== '/about') {
+          navigate('/about')
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        return
+      }
+
       if (href.startsWith('/cars/')) {
         navigate(href)
         window.scrollTo({ top: 0, behavior: 'smooth' })

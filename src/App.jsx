@@ -3,6 +3,7 @@ import { AppRouterProvider, useRouter } from './hooks/useAppRouter'
 import HomePage from './pages/HomePage'
 import CarsPage from './pages/CarsPage'
 import CarDetailPage from './pages/CarDetailPage'
+import AboutPage from './pages/AboutPage'
 import './App.css'
 
 function AppRoutes() {
@@ -19,6 +20,10 @@ function AppRoutes() {
 
   if (pathname === '/cars') {
     return <CarsPage />
+  }
+
+  if (pathname === '/about') {
+    return <AboutPage />
   }
 
   return <HomePage />
