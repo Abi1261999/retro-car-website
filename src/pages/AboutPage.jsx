@@ -11,7 +11,7 @@ export default function AboutPage() {
   const handleReadReviews = () => {
     const faq = document.getElementById('faq')
     if (faq) {
-      const top = faq.getBoundingClientRect().top + window.scrollY - 145
+      const top = faq.getBoundingClientRect().top + window.scrollY - 104
       window.scrollTo({ top, behavior: 'smooth' })
       return
     }
