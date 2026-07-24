@@ -33,9 +33,24 @@ export default function ServiceDetailPage({ serviceId }) {
       <Navbar onNavClick={navigateTo} />
       <main className="service-detail-page">
         <div className="service-detail-page__inner">
-          <section className="service-detail-intro">
-            <div className="service-detail-intro__left">
-              <h1 className="service-detail-page__title">{service.title}</h1>
+          <h1 className="service-detail-page__title">{service.title}</h1>
+
+          <div className="service-detail-content">
+            <img
+              src={service.image}
+              alt={service.title}
+              className="service-detail__image"
+              loading="lazy"
+              decoding="async"
+            />
+
+            <div className="service-detail-content__right">
+              <div className="service-detail-intro__copy">
+                {service.paragraphs.map((paragraph) => (
+                  <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+                ))}
+              </div>
+
               <button
                 type="button"
                 className="btn btn-service-cta"
@@ -44,21 +59,7 @@ export default function ServiceDetailPage({ serviceId }) {
                 {service.cta}
               </button>
             </div>
-
-            <div className="service-detail-intro__copy">
-              {service.paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-              ))}
-            </div>
-          </section>
-
-          <img
-            src={service.image}
-            alt={service.title}
-            className="service-detail__image"
-            loading="lazy"
-            decoding="async"
-          />
+          </div>
         </div>
       </main>
       <Footer onNavClick={navigateTo} />
