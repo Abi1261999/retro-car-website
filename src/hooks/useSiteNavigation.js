@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useRouter } from './useAppRouter'
 
-const SCROLL_OFFSET = 145
+const SCROLL_OFFSET = 104
 
 export function useSiteNavigation() {
   const { pathname, navigate } = useRouter()

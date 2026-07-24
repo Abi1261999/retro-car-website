@@ -1,8 +1,8 @@
 :root {
-  --color-bg: #ffffff;
-  --color-bg-elevated: #ffffff;
-  --color-bg-card: #ffffff;
-  --color-surface: #f7f7f7;
+  --color-bg: #FFFFFF;
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-card: #FFFFFF;
+  --color-surface: #FFFFFF;
   --color-border: #e5e5e5;
   --color-text: #4a4a4a;
   --color-text-muted: #8a8a8a;
@@ -14,7 +14,9 @@
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
   --nav-height: 88px;
-  --nav-top: 45px;
+  --nav-top: 0px;
+  --page-top-gap: 24px;
+  --page-top-offset: calc(var(--nav-top) + var(--nav-height) + var(--page-top-gap));
   --container-max: 1920px;
   --section-padding: 64px;
   --radius: 8px;
@@ -38,13 +40,13 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--color-text);
-  background: #ffffff;
+  background: #FFFFFF;
   -webkit-font-smoothing: antialiased;
 }
 
 #root {
   min-height: 100svh;
-  background: #ffffff;
+  background: #FFFFFF;
 }
 
 h1,

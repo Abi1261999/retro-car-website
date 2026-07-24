@@ -1,5 +1,5 @@
 .app {
-  background: #ffffff;
+  background: #FFFFFF;
   min-height: 100svh;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .btn-rent {
-  background: #ffffff;
+  background: #FFFFFF;
   color: #1a1a1a;
   border: none;
   padding: 11px 20px;
@@ -112,7 +112,7 @@
   width: 100%;
   max-width: 1920px;
   height: var(--nav-height);
-  background: #ffffff;
+  background: #FFFFFF;
   opacity: 1;
   transition: top var(--transition), box-shadow var(--transition), transform var(--transition);
 }
@@ -250,7 +250,7 @@
   .navbar__nav {
     position: fixed;
     inset: calc(var(--nav-top) + var(--nav-height)) 0 0 0;
-    background: #ffffff;
+    background: #FFFFFF;
     flex-direction: column;
     justify-content: flex-start;
     padding: 32px 24px;
@@ -290,8 +290,8 @@
 /* ─── Hero ─── */
 .hero {
   position: relative;
-  background: #ffffff;
-  padding-top: 183px;
+  background: #FFFFFF;
+  padding-top: var(--page-top-offset);
   padding-left: 63px;
   padding-right: 63px;
   padding-bottom: 32px;
@@ -341,7 +341,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 140px;
+    padding-top: calc(var(--nav-height) + 16px);
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 32px;
@@ -384,7 +384,7 @@
 
 /* ─── Cars ─── */
 .cars-section {
-  background: #ffffff;
+  background: #FFFFFF;
   padding: 0 63px 0;
 }
 
@@ -544,8 +544,8 @@
 
 /* ─── Cars page ─── */
 .cars-page {
-  background: #ffffff;
-  padding: calc(var(--nav-top) + var(--nav-height) + 41px) 63px 80px;
+  background: #FFFFFF;
+  padding: var(--page-top-offset) 63px 80px;
 }
 
 .cars-page__inner {
@@ -589,7 +589,7 @@
 
 @media (max-width: 768px) {
   .cars-page {
-    padding: calc(var(--nav-top) + var(--nav-height) + 24px) 24px 56px;
+    padding: calc(var(--nav-height) + 16px) 24px 56px;
   }
 
   .cars-page__header {
@@ -618,7 +618,7 @@
 
 /* ─── About ─── */
 .about-section {
-  background: #ffffff;
+  background: #FFFFFF;
   padding: 56px 63px 72px;
   margin: 0;
 }
@@ -892,8 +892,8 @@
 
 /* ─── About page ─── */
 .about-page {
-  background: #ffffff;
-  padding: calc(var(--nav-top) + var(--nav-height) + 41px) 63px 0;
+  background: #FFFFFF;
+  padding: var(--page-top-offset) 63px 0;
 }
 
 .about-page__inner {
@@ -963,7 +963,7 @@
 
 @media (max-width: 900px) {
   .about-page {
-    padding: calc(var(--nav-top) + var(--nav-height) + 24px) 24px 0;
+    padding: calc(var(--nav-height) + 16px) 24px 0;
   }
 
   .about-page-intro {
@@ -979,7 +979,7 @@
 
 /* ─── Services ─── */
 .services-section {
-  background: #ffffff;
+  background: #FFFFFF;
   padding: 72px 63px 88px;
   margin: 0;
 }
@@ -1116,7 +1116,7 @@
 
 /* ─── FAQ ─── */
 .faq-section {
-  background: #ffffff;
+  background: #FFFFFF;
   padding: 80px 63px 96px;
   margin: 0;
 }
@@ -1271,7 +1271,7 @@
 
 /* ─── Contact / Map ─── */
 .contact-section {
-  background: #ffffff;
+  background: #FFFFFF;
   padding: 80px 58px 99px;
   margin: 0;
 }
@@ -1385,7 +1385,7 @@
 
 .form-group input,
 .form-group textarea {
-  background: #ffffff;
+  background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 12px 16px;
@@ -1439,7 +1439,7 @@
 }
 
 .modal {
-  background: #ffffff;
+  background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 40px;
@@ -1501,7 +1501,7 @@
 
 /* ─── Footer ─── */
 .footer {
-  background: #ffffff;
+  background: #FFFFFF;
   border-top: 1px solid #d5d4d2;
   padding: 49px 58px 16px;
   margin: 0;
@@ -1675,8 +1675,8 @@
 
 /* ─── Car detail page ─── */
 .car-detail-page {
-  background: #ffffff;
-  padding: calc(var(--nav-top) + var(--nav-height) + 41px) 63px 0;
+  background: #FFFFFF;
+  padding: var(--page-top-offset) 63px 0;
 }
 
 .car-detail-page__inner {
@@ -1722,7 +1722,7 @@
   padding: 0;
   border: none;
   overflow: hidden;
-  background: #f2f2f2;
+  background: #FFFFFF;
   cursor: pointer;
 }
 
@@ -1868,7 +1868,7 @@
 
 @media (max-width: 768px) {
   .car-detail-page {
-    padding: calc(var(--nav-top) + var(--nav-height) + 24px) 24px 0;
+    padding: calc(var(--nav-height) + 16px) 24px 0;
   }
 
   .car-detail-page__heading {
