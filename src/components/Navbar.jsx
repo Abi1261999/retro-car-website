@@ -3,7 +3,7 @@ import { useRouter } from '../hooks/useAppRouter'
 
 const navLinks = [
   { label: 'Cars', href: '/cars' },
-  { label: 'About Us', href: '#about' },
+  { label: 'About Us', href: '/about' },
   { label: 'Services', href: '#services' },
   { label: 'Contacts', href: '#contacts' },
 ]
