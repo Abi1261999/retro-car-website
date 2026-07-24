@@ -32,6 +32,14 @@ export function useSiteNavigation() {
         return
       }
 
+      if (href === '/services' || href === '#services') {
+        if (pathname !== '/services') {
+          navigate('/services')
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        return
+      }
+
       if (href.startsWith('/cars/')) {
         navigate(href)
         window.scrollTo({ top: 0, behavior: 'smooth' })

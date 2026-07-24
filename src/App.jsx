@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import CarsPage from './pages/CarsPage'
 import CarDetailPage from './pages/CarDetailPage'
 import AboutPage from './pages/AboutPage'
+import ServicesPage from './pages/ServicesPage'
 import './App.css'
 
 function AppRoutes() {
@@ -24,6 +25,10 @@ function AppRoutes() {
 
   if (pathname === '/about') {
     return <AboutPage />
+  }
+
+  if (pathname === '/services') {
+    return <ServicesPage />
   }
 
   return <HomePage />
