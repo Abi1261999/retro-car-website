@@ -1,6 +1,19 @@
 import { services } from '../data/services'
 
-export default function ServicesContent({ onSubmitApplication, isPage = false }) {
+export default function ServicesContent({
+  onSubmitApplication,
+  onServiceClick,
+  isPage = false,
+}) {
+  const handleCardClick = (service) => {
+    if (onServiceClick) {
+      onServiceClick(service)
+      return
+    }
+
+    onSubmitApplication?.()
+  }
+
   return (
     <>
       <div className={`services-header ${isPage ? 'services-header--page' : ''}`}>
@@ -24,8 +37,8 @@ export default function ServicesContent({ onSubmitApplication, isPage = false })
             key={service.id}
             type="button"
             className="service-card"
-            onClick={onSubmitApplication}
-            aria-label={`${service.num} ${service.title} — submit your application`}
+            onClick={() => handleCardClick(service)}
+            aria-label={`${service.num} ${service.title} — view details`}
           >
             <img
               src={service.image}

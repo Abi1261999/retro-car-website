@@ -18,6 +18,7 @@ export default function ServicesPage() {
           <ServicesContent
             isPage
             onSubmitApplication={() => setApplicationOpen(true)}
+            onServiceClick={(service) => navigateTo(`/services/${service.id}`)}
           />
         </div>
       </main>
