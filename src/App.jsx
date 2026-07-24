@@ -1,18 +1,25 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { AppRouterProvider, useRouter } from './hooks/useAppRouter'
 import HomePage from './pages/HomePage'
 import CarsPage from './pages/CarsPage'
 import './App.css'
 
+function AppRoutes() {
+  const { pathname } = useRouter()
+
+  if (pathname === '/cars') {
+    return <CarsPage />
+  }
+
+  return <HomePage />
+}
+
 function App() {
   return (
-    <BrowserRouter>
+    <AppRouterProvider>
       <div className="app">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/cars" element={<CarsPage />} />
-        </Routes>
+        <AppRoutes />
       </div>
-    </BrowserRouter>
+    </AppRouterProvider>
   )
 }
 

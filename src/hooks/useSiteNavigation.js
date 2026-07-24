@@ -1,11 +1,10 @@
 import { useCallback } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useRouter } from './useAppRouter'
 
 const SCROLL_OFFSET = 145
 
 export function useSiteNavigation() {
-  const navigate = useNavigate()
-  const location = useLocation()
+  const { pathname, navigate } = useRouter()
 
   const scrollToId = useCallback((id) => {
     const el = document.getElementById(id)
@@ -18,7 +17,7 @@ export function useSiteNavigation() {
   const navigateTo = useCallback(
     (href) => {
       if (href === '/cars' || href === '#cars') {
-        if (location.pathname !== '/cars') {
+        if (pathname !== '/cars') {
           navigate('/cars')
         }
         window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -28,11 +27,12 @@ export function useSiteNavigation() {
       if (href.startsWith('#')) {
         const id = href.replace('#', '')
 
-        if (location.pathname !== '/') {
-          navigate({ pathname: '/', hash: href })
+        if (pathname !== '/') {
+          navigate(href)
           return
         }
 
+        navigate(href)
         scrollToId(id)
         return
       }
@@ -45,7 +45,7 @@ export function useSiteNavigation() {
 
       navigate(href)
     },
-    [location.pathname, navigate, scrollToId],
+    [pathname, navigate, scrollToId],
   )
 
   return { navigateTo, scrollToId }

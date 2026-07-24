@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useRouter } from '../hooks/useAppRouter'
 
 const navLinks = [
   { label: 'Cars', href: '/cars' },
@@ -11,7 +11,7 @@ const navLinks = [
 export default function Navbar({ onNavClick }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const location = useLocation()
+  const { pathname } = useRouter()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -28,7 +28,7 @@ export default function Navbar({ onNavClick }) {
 
   useEffect(() => {
     setMenuOpen(false)
-  }, [location.pathname])
+  }, [pathname])
 
   const handleNav = (e, href) => {
     e.preventDefault()
